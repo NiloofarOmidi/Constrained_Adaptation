@@ -1,0 +1,78 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+/* Basic Styles */
+body {
+  font-family: "Times New Roman", serif; /* Classic serif font */
+  line-height: 1.6; /* Improved readability */
+  margin: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+main {
+  display: grid; /* Arrange audio sections in a grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive columns */
+  gap: 20px;
+}
+
+.audio-container {
+  border: 1px solid #ddd;
+  padding: 30px;
+  width: 100%;
+}
+
+/* Audio Player Styling */
+audio {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+/* Basic styling for the image gallery */
+.image-gallery {
+  display: flex; /* Enable flexbox for easy alignment */
+  justify-content: center; /* Center the images horizontally */
+  gap: 20px; /* Add spacing between images */
+}
+
+.image-container {
+  width: 48%; /* Each image takes roughly half the width */
+  max-width: 500px; /* Optional: limit the maximum image width */
+}
+
+.image-container img {
+  width: 100%; /* Make images fill the container width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Prevent small gaps below images */
+}
+
+/* Media query for responsive adjustments (e.g., smaller screens) */
+@media (max-width: 768px) {
+  .image-gallery {
+    flex-direction: column; /* Stack images vertically on smaller screens */
+  }
+  .image-container {
+    width: 100%; /* Images take full width when stacked */
+  }
+}

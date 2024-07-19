@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio Supplements</title>
+    <link rel="stylesheet" href="./scss/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        A new time-domain spectral noise shaping approach for speech and audio
+        coding
+      </h1>
+      <h2>Niloofar Omidi Piralideh, Philippe Gournay, Roch Lefebvre</h2>
+      <p>
+        Department of Electrical and Computer Engineering, Université de
+        Sherbrooke
+      </p>
+    </header>
+
+    <main>
+      <section class="abstract">
+        <h2>Abstract</h2>
+        <p id="abstract">
+          This paper introduces a new approach to perceptually shape the
+          spectrum of coding noise in speech and audio codecs. This approach is
+          based on the well-known principle of pre- and post-processing using
+          adaptive linear filters. However, it features a new way to estimate
+          the coefficients of the post-processing filter. Unlike conventional
+          approaches in which these coefficients are estimated from the input of
+          the pre-processor (forward adaptation) or from the past decoded signal
+          at the decoder side (backward adaptation), in the new approach, they
+          are estimated from the current output of the decoder. This estimation
+          not only requires no transmission of information but also introduces
+          no input-filter lag. For this to work correctly, some constraints must
+          be imposed on the pre-processor. An implementation of this new
+          approach we refer to as constrained adaptation is described.
+          Subjective evaluation results show that constrained adaptation
+          performs at least as well as forward or backward adaptation in shaping
+          coding noise but at no cost in bit rate or lag.
+        </p>
+      </section>
+
+      <h2>Overall Pipeline</h2>
+      <section class="image-gallery">
+        <figure class="image-container" id="pipeline">
+          <img
+            src="./assets/images/Pipeline.jpeg"
+            alt="Overall Pipeline Diagram"
+            loading="lazy"
+          />
+          <figcaption class="figcaption">
+            The proposed constrained pre- and post-filters.
+          </figcaption>
+        </figure>
+      </section>
+
+      <h2>Subjective Evaluation</h2>
+      <section class="table-container">
+        <table>
+          <caption>
+            List of Abbreviations used in MUSHRA test
+          </caption>
+          <thead>
+            <tr>
+              <th>Abbreviation</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ref</td>
+              <td>Original signal</td>
+            </tr>
+            <tr>
+              <td>Anchor</td>
+              <td>Low-passed signal</td>
+            </tr>
+            <tr>
+              <td>CVSD</td>
+              <td>Plain CVSD</td>
+            </tr>
+            <tr>
+              <td>ADPCM</td>
+              <td>Plain ADPCM</td>
+            </tr>
+            <tr>
+              <td>BB-BW</td>
+              <td>
+                Codec with additional block-based backward-adaptive pre- and
+                post-filters
+              </td>
+            </tr>
+            <tr>
+              <td>SB-BW</td>
+              <td>
+                Codec with additional sample-based backward-adaptive pre- and
+                post-filters
+              </td>
+            </tr>
+            <tr>
+              <td>FW</td>
+              <td>
+                Codec with additional forward-adaptive pre- and post-filters
+              </td>
+            </tr>
+            <tr>
+              <td>Constrained</td>
+              <td>
+                Codec with additional constrained-adaptive pre- and post-filters
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="image-gallery">
+        <figure class="image-container" id="mushra_test">
+          <img
+            src="./assets/images/mushra_test.001.png"
+            alt="Overall Pipeline Diagram"
+            loading="lazy"
+          />
+          <figcaption class="figcaption">
+            MUSHRA listening test results with a 95% confidence interval for the
+            ADPCM and CVSD codecs: comparing the performance of the standard
+            codec to the enhanced codec with noise shaping, using the proposed
+            constrained, unquantized forward and backward-adaptive pre- and
+            post-filters.
+          </figcaption>
+        </figure>
+      </section>
+
+      <h2>Demo</h2>
+      <p>
+        This section provides audio examples from the MUSHRA listening test.
+      </p>
+      <section class="audio-gallery">
+        <section class="audio-section">
+          <h3>ADPCM (Adaptive Differential Pulse Code Modulation)</h3>
+
+          <div class="gender-sections">
+            <section class="audio-subsection">
+              <h4>Female Sample</h4>
+
+              <div class="audio-container">
+                <h3>Ref</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_Ref.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>Anchor</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_anchor.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>ADPCM</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>SB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_SB_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>BB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_BB_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>FW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_FW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>Constrained</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Female_constrained.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </section>
+
+            <section class="audio-subsection">
+              <h4>Male Sample</h4>
+
+              <div class="audio-container">
+                <h3>Ref</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_Ref.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>Anchor</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_anchor.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>ADPCM</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>SB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_SB_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>BB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_BB_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>FW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_FW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>Constrained</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/ADPCM_Male_constrained.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+      <section class="audio-gallery">
+        <section class="audio-section">
+          <h3>CVSD (Continuous Variable Slope Delta Modulation)</h3>
+
+          <div class="gender-sections">
+            <section class="audio-subsection">
+              <h4>Female Sample</h4>
+
+              <div class="audio-container">
+                <h3>Ref</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female_ref.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>Anchor</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female_anchor.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>CVSD</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>BB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>FW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female_FW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>Constrained</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Female_constrained.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </section>
+
+            <section class="audio-subsection">
+              <h4>Male Sample</h4>
+
+              <div class="audio-container">
+                <h3>Ref</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male_Ref.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>Anchor</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male_anchor.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>CVSD</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+              <div class="audio-container">
+                <h3>BB.BW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male_BW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>FW</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male_FW.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="audio-container">
+                <h3>Constrained</h3>
+                <audio controls>
+                  <source
+                    src="./assets/audio/CVSD_Male_constrained.wav"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <hr />
+      <p class="citation-note">How to cite this paper:</p>
+      <p class="citation-info">
+        [Author Names]. "[Paper Title]," [Conference/Journal Name], [Year].
+      </p>
+    </footer>
+  </body>
+</html>

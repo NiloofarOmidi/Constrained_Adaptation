@@ -1,0 +1,209 @@
+/* Import Bootstrap's CSS */
+@import "bootstrap/scss/bootstrap";
+
+/* Basic Styles */
+body {
+  font-family: "Times New Roman", serif;
+  line-height: 1.6;
+  margin: 50px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Image Gallery Styling */
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center containers horizontally */
+  gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.image-container {
+  display: block; /* Add flexbox to the image container */
+  text-align: center; /* Center the image within the container */
+}
+
+/* #mushra_test {
+  transform: scale(1.1);
+}
+
+#pipeline {
+  transform: scale(0.9);
+
+} */
+
+.figcaption { /* Target figcaptions specifically within image galleries */
+  text-align: left;
+  /* font-style: italic; */
+  font-size: 18px;
+  font-family: "Times New Roman", serif;
+  margin-top: 10px;
+}
+
+
+.image-container img {
+  width: 100%; /* Make images fill their container width */
+  height: 100%;
+  display: block;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+/* Media Query for Responsive Adjustments */
+@media (max-width: 768px) {
+  .audio-grid {
+    grid-template-columns: 1fr; /* Stack audio clips on smaller screens */
+  }
+}
+
+/* Audio Gallery Styling */
+/* Audio Gallery Styling */
+.audio-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.audio-section {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Key changes here */
+.audio-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.gender-sections {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px; /* Add spacing between gender sections */
+}
+
+.audio-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1; /* Allow sections to grow and take available space */
+}
+
+.audio-subsection:first-child {
+  /* Targets the first subsection (Female) */
+  border-right: 2px solid #eee; /* Light gray border */
+}
+
+.audio-container {
+  text-align: center;
+}
+
+.audio-container audio {
+  width: 80%; /* Make audio players fill their container width */
+}
+
+#abstract {
+  font-size: 20px;
+  font-family: "Times New Roman", serif;
+  /* margin: 50px; */
+}
+
+/* Abstract Section Styling */
+.abstract {
+  text-align: justify;   /* Fully justify the text to align both left and right edges */
+  text-justify: inter-word; /* Add spaces only between words for justification */
+  hyphens: auto;          /* Allow automatic hyphenation for better line breaks */
+  line-height: 1.8;       /* Increase line height for better readability */
+}
+
+.abstract p {
+  margin-bottom: 20px;   /* Add consistent spacing below the paragraph */
+}
+
+.caption {
+  text-align: left;
+  align-items: left;
+}
+
+.table-container {
+  width: 90%; /* Adjust width as needed */
+  margin: 20px auto; /* Center the section */
+  padding: 30px;
+  margin-bottom: 70px;
+  border: 1px solid #ddd;
+  border-radius: 5px; /* Optional rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-size: 20px;
+}
+
+.table-container h2 {
+  margin-bottom: 10px;
+}
+
+table {
+  /* Table styles remain the same */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: left; /* Align text to the left */
+  margin-top: 20px; /* Add some spacing above the footer */
+}
+
+hr {
+  /* Style the horizontal line */
+  margin: 15px 0; /* Add spacing above and below the line */
+  border: none; /* Remove default border */
+  border-top: 1px solid #eee; /* Add a light gray line */
+}
+
+.citation-note {
+  /* Style the "How to cite..." text */
+  font-weight: bold;
+}
